@@ -23,14 +23,14 @@ class Product extends EShop {
 }
 
 
-class User {
+class User{
     public $userNormale;
     public $userPremium;
     public $sconto;
     public $carta;
 
     public function getTypeUser(string $user, int $sconto){
-        if($sconto = 0){
+        if($sconto === 0){
             $this->userNormale = $user;
         } else {
             $this->userPremium = $user;
@@ -45,6 +45,7 @@ $product = new Product;
 $user = new User;
 $product->aggiungiProdotti('ferrari', 'auto');
 $user->getTypeUser('antonio', 0);
+var_dump($user);
 var_dump($product);
 
 
