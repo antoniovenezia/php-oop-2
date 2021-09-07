@@ -9,56 +9,50 @@ Provate a far interagire tra di loro gli oggetti: ad esempio, l’utente dello s
 <?php 
 
 class EShop {
-
     // mettiamo una lista di prodotti
-
-    public $tipoProdotto; 
-
+    protected $Prodotti = []; 
+    public $tipoProdotto;
     public $utente;
 }
 
-// ---------------------------------------------
-
-class Product {
-    public $categoria; //bellezza, elettronica ecc
+class Product extends EShop {
+    public function aggiungiProdotti(string $product, string $typeProduct){
+        $this->Prodotti = $product;      
+        $this->tipoProdotto = $typeProduct;          
+    }
 }
 
-class TechProduct extends Product {
-    public $pc;
-    public $computer;
-}
-
-            class Pc extends TechProduct {
-                public $typeProcessor;
-                public $grandezzaSchermo;
-            }
-
-            class Pc extends TechProduct {
-                public $typeProcessor;
-                public $grandezzaSchermo;
-            }
-
-class BeautyProduct extends Product {    
-    public $creme;
-    public $trucchi;
-}
-
-class CarProduct extends Product {
-    public $pneumatici;
-    public $motore;    
-}
-
-// ---------------------------------------------
 
 class User {
-    public $sconto = 0;
+    public $userNormale;
+    public $userPremium;
+    public $sconto;
+    public $carta;
+
+    public function getTypeUser(string $user, int $sconto){
+        if($sconto = 0){
+            $this->userNormale = $user;
+        } else {
+            $this->userPremium = $user;
+            $this->sconto = $sconto;
+        };
+        $this->utente = $user;
+    }
 }
 
-class PremiumUser {
-    // qui dentro potrebbe avere la definizione di una percentuale di 
-    // sconto per ogni prodotto.
-    public $sconto = 50;
+$shop = new EShop;
+$product = new Product;
+$user = new User;
+$product->aggiungiProdotti('ferrari', 'auto');
+$user->getTypeUser('antonio', 0);
+var_dump($product);
+
+
+
+class CartaDiCredito {
+                
 }
+
 
 // ----------------------------------------------
 
