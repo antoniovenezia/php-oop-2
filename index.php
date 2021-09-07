@@ -23,22 +23,27 @@ class Product {
     public $categoria; //bellezza, elettronica ecc
 }
 
-Class TechProduct extends Product {
+class TechProduct extends Product {
     public $pc;
     public $computer;
 }
 
-    class Pc extends TechProduct {
-        public $typeProcessor;
-        public $grandezzaSchermo;
-    }
+            class Pc extends TechProduct {
+                public $typeProcessor;
+                public $grandezzaSchermo;
+            }
 
-Class BeautyProduct extends Product {    
+            class Pc extends TechProduct {
+                public $typeProcessor;
+                public $grandezzaSchermo;
+            }
+
+class BeautyProduct extends Product {    
     public $creme;
     public $trucchi;
 }
 
-Class CarProduct extends Product {
+class CarProduct extends Product {
     public $pneumatici;
     public $motore;    
 }
